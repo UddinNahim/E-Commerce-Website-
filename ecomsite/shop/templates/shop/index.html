@@ -32,10 +32,15 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ product.image }}" class="card-img-top" style="width:286px; height:300px; object-fit:cover;"  alt="{{ product.title }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <p class="card-text">${{ product.price }}</p>
+                    <div class="card-title">{{ product.title }}</div>
+                    <div class="card-text">${{ product.price }}</div>
+                      <a href="/{{product.id}}" class="btn btn-warning">View</a>
+                <a class=" btn btn-warning">Add to Cart</a>
                 </div>
+                 
+                
             </div>
+         
         </div>
         {% endfor %}
     </div>
@@ -44,16 +49,16 @@
             <ul class="pagination"> 
                 {% if product_objects.has_previous %}
                     <li class="page-item">
-                        <a href="?page={{ product_objects.previous_page_number }}">Previous</a>
+                        <a class="page-link" href="?page={{ product_objects.previous_page_number }}">Previous</a>
                     </li>
                 {% endif%}
                 <li class="page-item active">
-                        <a href="?page={{product_objects.number}}">Current</a>
+                        <a class="page-link" href="?page={{product_objects.number}}">Current</a>
                 </li>
 
                 {%  if product_objects.has_next  %}
                     <li class="page-item ">
-                        <a href="?page={{product_objects.next_page_number}}">Next</a>
+                        <a class="page-link" href="?page={{product_objects.next_page_number}}">Next</a>
                     </li>
                 {% endif%}
 

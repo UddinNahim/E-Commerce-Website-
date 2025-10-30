@@ -109,11 +109,16 @@
         console.log(item_id)
 
         if(cart[item_id] !==undefined){
-            cart[item_id] =  cart[item_id] + 1;
+            quantity =  cart[item_id][0] + 1;
+            cart[item_id][0] = quantity;
 
         }
         else{
-            cart[item_id] = 1;
+            quantity = 1;
+            name = document.getElementById("nm"+item_id).innerHTML;
+            cart[item_id]=[quantity,name];
+
+            
         }
 
         console.log(cart);
@@ -135,7 +140,7 @@
     for (var x in cart) {
         var itemElement = document.getElementById("nm" + x);
         if (itemElement) {
-            cartString += cartIndex + ". " + itemElement.innerHTML + " — Qty: " + cart[x] + "<br>";
+            cartString += cartIndex + ". " + itemElement.innerHTML + " — Qty: " + cart[x][0] + "<br>";
         } else {
             // Item not on this page — skip it
             cartString += cartIndex + ". Unknown Item (ID: " + x + ") — Qty: " + cart[x] + "<br>";
